@@ -23,11 +23,12 @@ producto = producto.toLowerCase();
 //Filtro segun los datos ingresados por el usuario.
 let prodFiltrados = productos.filter(
     (item) =>
-     item.categoria === categoria && 
-     item.producto === producto &&
-     item.precio <= precio
+        item.categoria === categoria &&
+        item.producto === producto &&
+        item.precio <= precio    
 );
 
+/* 
 //Creo un mensaje para mostrarle al usuario los datos obtenidos segun sus preferencias.
 let mensaje = "";
 prodFiltrados.forEach((item) => {
@@ -38,7 +39,7 @@ prodFiltrados.forEach((item) => {
     `;
 });
 alert(mensaje)
-
+ */
 
 
 
