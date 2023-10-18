@@ -11,15 +11,24 @@ const productos = [
 ];
 
 
-// Pedimos la categoria a filtrar a traves de un prompt
-let categoria = prompt("Ingrese la categoria");
+//Pedido de datos al usuario para hacer el filtro, mediante prompt.
+let categoria = prompt("Ingrese la categoria del producto buscado");
+let producto = prompt("Ingrese el nombre del producto buscado");
+let precio = Number(prompt("Ingrese el valor maximo que desea pagar por su producto"));
+
+//Modifico las entradas para evitar que no coincidan con los valores.
 categoria = categoria.toUpperCase();
-//Filtramos por categoria
+producto = producto.toLowerCase();
+
+//Filtro segun los datos ingresados por el usuario.
 let prodFiltrados = productos.filter(
-    (item) => item.categoria === categoria
+    (item) =>
+     item.categoria === categoria && 
+     item.producto === producto &&
+     item.precio <= precio
 );
 
-//Mostramos por un alert cada uno de los productos filtrados
+//Creo un mensaje para mostrarle al usuario los datos obtenidos segun sus preferencias.
 let mensaje = "";
 prodFiltrados.forEach((item) => {
     mensaje += `
