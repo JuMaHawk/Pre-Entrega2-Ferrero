@@ -4,6 +4,8 @@ const productos = [
     { id: 3, categoria: "PASEO", producto: "contrapedal", precio: 3600 }
 ];
 
+
+
 function agregarProducto(categoria, producto, precio) {
     let nuevoId = productos.length + 1
     nuevoProducto = { id: nuevoId, categoria, producto, precio }
@@ -13,20 +15,8 @@ function agregarProducto(categoria, producto, precio) {
 function borrarProducto(id) {
     let prodBorrar = productos.find((item) => item.id === id);
     let posicion = productos.indexOf(prodBorrar)
-    productos.splice(posicion,1)
-
-    let mensaje = "";
-    productos.forEach((item) => {
-        mensaje += `
-    id: ${item.id}
-    Categoria: ${item.categoria}
-    Producto: ${item.producto}
-    Precio: $${item.precio}
-    `;
-    });
-    alert(mensaje)
+    productos.splice(posicion, 1)
 }
-
 
 let opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n2-Borrar un producto.\n3- Salir."))
 
@@ -42,10 +32,10 @@ while (opciones !== 3) {
         productos.forEach((item) => {
             mensaje += `
             id: ${item.id}
-    Categoria: ${item.categoria}
-    Producto: ${item.producto}
-    Precio: $${item.precio}
-    `;
+            Categoria: ${item.categoria}
+            Producto: ${item.producto}
+            Precio: $${item.precio}
+            `;
         });
         alert(mensaje)
 
@@ -56,7 +46,26 @@ while (opciones !== 3) {
         let eliminar = Number(prompt("Ingrese el id correspondiente del producto que desea borrar"));
         borrarProducto(eliminar);
 
-        opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n2-Borrar un producto.\n3- Salir."))
+        let cantElementos = productos.length;
+        if (cantElementos <= 0) {
+            alert("Ya no hay productos en stock")
+            opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n3- Salir."))
+        
+        } else {
+
+            let mensaje = "";
+            productos.forEach((item) => {
+                mensaje += `
+            id: ${item.id}
+            Categoria: ${item.categoria}
+            Producto: ${item.producto}
+            Precio: $${item.precio}
+            `;
+            });
+            alert(mensaje)
+
+            opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n2-Borrar un producto.\n3- Salir."))
+        }
 
     } else {
         alert("Por favor ingrese una opcion válida")
