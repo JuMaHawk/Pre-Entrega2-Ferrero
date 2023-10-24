@@ -1,18 +1,37 @@
 const productos = [
-    { categoria: "MTB", producto: "llanta", precio: 8000 },
-    { categoria: "CARRERA", producto: "manubrio", precio: 1400 },
-    { categoria: "PASEO", producto: "contrapedal", precio: 3600 },
-    { categoria: "MTB", producto: "cubierta", precio: 4500 },
-    { categoria: "CARRERA", producto: "cadena", precio: 650 },
-    { categoria: "PASEO", producto: "pedales", precio: 3100 },
-    { categoria: "MTB", producto: "disco de freno", precio: 5500 },
-    { categoria: "CARRERA", producto: "shifter", precio: 6750 },
-    { categoria: "PASEO", producto: "pedalines", precio: 2730 }
+    { id:1, categoria: "MTB", producto: "llanta", precio: 8000 },
+    { id:2, categoria: "CARRERA", producto: "manubrio", precio: 1400 },
+    { id:3, categoria: "PASEO", producto: "contrapedal", precio: 3600 }
 ];
 
+function agregarProducto(categoria, producto, precio){
+    let nuevoId = productos.length + 1
+    nuevoProducto = {id: nuevoId, categoria, producto,precio}
+    productos.push(nuevoProducto)
+}
 
-let opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n"))
 
+
+let opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n2-Borrar un producto.\n3- Buscar un producto."))
+
+if (opciones === 1){
+    let categoria = prompt("Ingrese la categoria correspondiente al producto");
+    let producto = prompt("Ingrese el nombre del producto");
+    let precio = Number(prompt("Ingrese el precio del producto"));
+   
+    agregarProducto(categoria, producto, precio);
+
+    let mensaje = "";
+productos.forEach((item) => {
+    mensaje += `
+    Categoria: ${item.categoria}
+    Producto: ${item.producto}
+    Precio: $${item.precio}
+    `;
+});
+alert(mensaje)
+
+}
 //Pedido de datos al usuario para hacer el filtro, mediante prompt.
 let categoria = prompt("Ingrese la categoria del producto buscado");
 let producto = prompt("Ingrese el nombre del producto buscado");
