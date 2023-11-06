@@ -18,7 +18,7 @@ function borrarProducto(id) {
     productos.splice(posicion, 1)
 }
 
-let opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n2-Borrar un producto.\n3- Salir."))
+let opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n2- Borrar un producto.\n3- Salir."))
 
 while (opciones !== 3) {
     if (opciones === 1) {
@@ -39,7 +39,7 @@ while (opciones !== 3) {
         });
         alert(mensaje)
 
-        opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n2-Borrar un producto.\n3- Salir."))
+        opciones = Number(prompt("Ingrese el numero de la opción que desea realizar\n1- Agregar un producto.\n2- Borrar un producto.\n3- Salir."))
 
     } else if (opciones === 2) {
 
